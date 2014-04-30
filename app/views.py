@@ -25,6 +25,7 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        flash("OpenID=" + form.openid.data + ", remember_me=" + str(form.remember_me.data))
+        flash("OpenID=" + form.openid.data)
+        flash("remember_me=" + str(form.remember_me.data))
         return redirect('/index')
     return render_template('login.html', title='Sign In', form=form)
